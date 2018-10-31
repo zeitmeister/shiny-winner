@@ -30,3 +30,37 @@
     transform: rotate(360deg);
   }
 }
+
+header {
+  text-align: center;
+  background-color: aquamarine;
+  padding: 25px 0;
+  margin: 25px 25% 0 25%;
+  border: solid salmon 2px;
+  border-bottom: none;
+  border-radius: 10px;
+}
+
+header .heading,
+header p {
+  display: inline;
+  font-family: 'Open Sans', sans-serif;
+  vertical-align: default;
+  font-size: 16px;
+  line-height: 28px;
+  text-align: center;
+}
+
+p {
+  padding-left: 50px;
+}
+
+.bulk {
+  margin: 0 25%;
+  text-align: center;
+  border: solid salmon 2px;
+  border-top: none;
+  border-radius: 10px;
+}
+
+
