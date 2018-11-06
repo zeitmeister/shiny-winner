@@ -1,30 +1,38 @@
 import React, {Component} from 'react'
 import {
     Form,
-    FormGroup,
-    FormControl,
-    Button
 } from 'react-bootstrap';
 
 
 class SearchForm extends Component {
    
+    fInput = React.createRef();
+    years = React.createRef();
+
     handleSubmit = (e) => {
         e.preventDefault();
-        alert(this.name.value);
+        this.props.handleFormSubmit(this.fInput.current.value, this.years.current.value);
+        e.currentTarget.reset();
     }
   
     render() {
-        const { value1 } = this.props;
+        console.log(this.fInput);
         return (
-            <Form inline onSubmit={this.handleSubmit}>
-                <FormGroup controlId="formInlineEmail">
-                    <FormControl input="text" placeholder="enter something..." value={value1}inputRef={ (input) => this.name = input}/>
-                </FormGroup>
-                {' '}
-                <Button type="submit" >
-            search
-                </Button>
+            <Form onSubmit={this.handleSubmit}>
+                <input 
+                    type="text"
+                    placeholder="Programming language" 
+                    ref={ this.fInput }
+                />
+                 <input 
+                    type="text"
+                    placeholder="When did you start to learn it"
+                    ref= { this.years }
+                 />
+                  <input
+                    type="submit"
+                    value="Strunt"
+                 />
             </Form>
         );
 }

@@ -1,50 +1,16 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-header {
+ /*header {
   text-align: center;
   background-color: aquamarine;
   padding: 25px 0;
-  margin: 25px 25% 0 25%;
+  margin: 25px 15% 0 15%;
   border: solid salmon 2px;
   border-bottom: none;
   border-radius: 10px;
-}
+}*/
 
 header .heading,
 header p {
-  display: inline;
-  font-family: 'Open Sans', sans-serif;
+  display: block;
   vertical-align: default;
   font-size: 16px;
   line-height: 28px;
@@ -56,11 +22,74 @@ p {
 }
 
 .bulk {
-  margin: 0 25%;
+  margin: 0 15%;
+  margin-bottom: 25%;
   text-align: center;
   border: solid salmon 2px;
   border-top: none;
   border-radius: 10px;
 }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  background-image: url("background.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 0;
+}
+
+.box {
+  height: 50%;
+  width: 48%;
+  border: solid black 3px;
+  margin: 140px auto 0 auto;
+  border-radius: 8px;
+  background: white;
+}
+
+.box h1 {
+  text-align: center;
+}
+
+ul {
+  margin-top: 50px;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  font-size: 18px;
+  transition-duration: 0.3s;
+}
+
+li:hover {
+  font-size: 24px;
+}
+
+.header {
+  padding: 10px 16px;
+  background: white;
+  color: black;
+  border-bottom: solid black 3px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%
+}
+
+@font-face {
+  font-family: Ponytant-Regular;
+  src: url(Ponytant-Regular.ttf);
+}
+
 
 
