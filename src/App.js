@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { slide as Menu } from 'react-burger-menu'
+
+
 import Header from './Components/Header'
-import Language from './Components/Language';
-import SearchForm from './Components/SearchForm';
 import Content from './Components/Content';
+import TextContent from './Components/TextContent';
 import './App.css';
 
 class App extends Component {
@@ -67,7 +69,7 @@ handleClick = i => {
         alert ("I've been learning " + language.name + " for " + this.getLanguageyears(language.id + -1) + " years");
         return {
           ...language,
-          name: "Skalleper"
+          pressed: !language.pressed
         };
         
       }
@@ -82,21 +84,17 @@ handleClick = i => {
         <Header />
         <Content 
         languages={this.state.languages}
-        handleClick={this.handleClick} 
+        handleClick={this.handleClick}
+        handleFormSubmit={this.addLanguage}
         />
-        <SearchForm
-          handleFormSubmit={this.addLanguage}/>
-        {this.state.languages.map( (language) =>
-        <div className="box" key={language.id}>
-          <Language 
-          language = {language.name}
-          years = {this.getLanguageyears(language.id - 1)}
-          id = {language.id}
-          key = {language.id.toString()}
-          />
-        </div>
-          )}
+        {/*<SearchForm
+          handleFormSubmit={this.addLanguage}/>*/}
+          <div className="box">
+          <TextContent />
+          </div>
+          
       </div>
+      
     );
   }
 }

@@ -18,7 +18,7 @@ class SearchForm extends Component {
     render() {
         console.log(this.fInput);
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <Form className="inputForm" onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
                     placeholder="Programming language" 
@@ -29,7 +29,7 @@ class SearchForm extends Component {
                     placeholder="When did you start to learn it"
                     ref= { this.years }
                  />
-                  <input
+                  <input className="form_button"
                     type="submit"
                     value="Strunt"
                  />

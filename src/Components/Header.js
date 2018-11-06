@@ -1,12 +1,13 @@
 import React from 'react';
+import { slide as Menu } from 'react-burger-menu'
 
-const Header = (props) => {
+
+const Header = () => {
     return (
-    <header>
-        <div className="header" id="myHeader">
+        <div className="header">
+            
             <h2>Simon</h2>
         </div>
-    </header>
     );
 }
 
