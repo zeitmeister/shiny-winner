@@ -1,20 +1,7 @@
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'PoiretOne-Regular';
-}
-
 body {
-  margin: 0;
-  padding: 0;
+  height: 100%;
 }
 
-/*code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}*/
-
-@font-face {
-  font-family: PoiretOne-Regular;
-  src: url(PoiretOne-Regular.ttf);
+html {
+  height: 100%;
 }

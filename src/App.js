@@ -5,11 +5,16 @@ import { slide as Menu } from 'react-burger-menu'
 import Header from './Components/Header'
 import Content from './Components/Content';
 import TextContent from './Components/TextContent';
+import StravaStats from './Components/StravaStats';
 import './App.css';
 
 class App extends Component {
   state = {
     text: "",
+    runningStats: {
+      totalDistance: 0,
+      count: 0
+    },
     languages:   [
       {
         name: "JavaScript",
@@ -38,6 +43,18 @@ class App extends Component {
     ]
   }
 
+  componentDidMount() {
+    fetch('https://www.strava.com/api/v3/athletes/8167341/stats?access_token=5f45791fa47c6947afa3531a11383a0bb9d31fdf')
+      .then(response => response.json())
+      //.then(data => console.log(data))
+      .then(data => this.setState({
+        runningStats: {
+         totalDistance: data.all_run_totals.distance / 1000,
+         count: data.all_run_totals.count 
+        }
+        })
+      );
+  }
   
   
 
@@ -80,19 +97,35 @@ handleClick = i => {
 
   render() {
     return (
-      <div className="container">
-        <Header />
-        <Content 
+      <div className="app">
+      <Menu>
+        <a id="home" className="menu-item" href="/">Home</a>
+        <a id="about" className="menu-item" href="/about">About</a>
+        <a id="contact" className="menu-item" href="/contact">Contact</a>
+        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+      </Menu>
+      <div id="page-wrap">
+      <Header />
+      <Content 
         languages={this.state.languages}
         handleClick={this.handleClick}
         handleFormSubmit={this.addLanguage}
         />
+        
         {/*<SearchForm
           handleFormSubmit={this.addLanguage}/>*/}
           <div className="box">
           <TextContent />
           </div>
+          <div className="box">
+          <StravaStats 
+          distance={this.state.runningStats.totalDistance}
+          count={this.state.runningStats.count}
+          />
+          </div>
+
           
+      </div>
       </div>
       
     );

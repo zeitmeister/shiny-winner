@@ -9,40 +9,52 @@
   border-radius: 10px;
 }*/
 
-header .heading,
-header p {
-  display: block;
-  vertical-align: default;
-  font-size: 16px;
-  line-height: 28px;
-  text-align: center;
+@font-face {
+  font-family: PoiretOne-Regular;
+  src: url(PoiretOne-Regular.ttf);
+}
+
+
+#page-wrap {
+  overflow: auto;
+  height: 100%;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: .35em;
+    background-image: url("background.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-box-shadow: 0 0 26px rgba(0, 0, 0, .13);
+    box-shadow: 0 0 26px rgba(0, 0, 0, .13);
+
 }
 
 p {
   padding-left: 50px;
 }
 
-.bulk {
-  margin: 0 15%;
-  margin-bottom: 25%;
-  text-align: center;
-  border: solid salmon 2px;
-  border-top: none;
-  border-radius: 10px;
-}
-
 body {
   text-align: center;
-  background-image: url("background.png");
-  background-repeat: repeat;
-  background-position: center;
-  background-size: contain;
+  margin: 0;
+  font-family: 'PoiretOne-Regular';
+  height: 100%;
+}
+
+html {
+  height:100%;
   margin: 0;
 }
 
+
 .box {
-  height: 50%;
-  width: 48%;
+  height: 100%;
+  width: 75%;
   border: solid black 3px;
   margin: 140px auto 0 auto;
   border-radius: 8px;
@@ -128,10 +140,66 @@ button:hover,
   .languageContainer {
     padding: 0;
   }
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 20px;
+    
+  }
 
-  @font-face {
-    font-family: Balbeer-Regular;
-    src: url(Balbeer-Rustic.ttf);
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #373a47;
+    padding: 2.5em 0.5em 0;
+    font-size: 1.15em;
+  }
+
+  .bm-menu-wrap {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    height: 100%;
+    width: 200px !important;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+    height: 100%;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
   }
 
   
