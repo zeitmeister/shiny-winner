@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu'
+import axios from 'axios';
 
 
 import Header from './Components/Header'
@@ -20,40 +21,46 @@ class App extends Component {
         name: "JavaScript",
         startingYear: 2016,
         id: 1,
-        pressed: false
+        pressed: false,
+        languageInfo: "JavaScript was the first language for me. Back in 2016 I came across it on the intro course on teamtreehouse.com. Since then I have continued to work with it. This page is mostly written in JavaScript with the React-library."
       },
       {
         name: "C#",
         startingYear: 2017,
         id: 2,
-        pressed: false
+        pressed: false,
+        languageInfo: "After a year of programming on my own I decided to go for it and started a University education. There i learned Object Oriented Programming through C#, something that I still enjoy alot"
       },
       {
         name: "Java",
         startingYear: 2018,
         id: 3,
-        pressed: false
+        pressed: false,
+        languageInfo: "Started to develop som Android apps with Java. For example I've made a shoppinglist-app for me and my girlfriend, tailormade for our needs."
       },
       {
         name: "PHP",
         startingYear: 2017,
         id: 4,
-        pressed: false
+        pressed: false,
+        languageInfo: "Through the university I also came across some PHP and connected it to some SQL-databases. Together with some friends I made an app for the hazing/freshman pranks with the back-end functionality written by me. Please contact with me if you'd like to see it"
       }
     ]
   }
 
   componentDidMount() {
-    fetch('https://www.strava.com/api/v3/athletes/8167341/stats?access_token=5f45791fa47c6947afa3531a11383a0bb9d31fdf')
-      .then(response => response.json())
-      //.then(data => console.log(data))
+    axios.post('https://www.strava.com/oauth/token?client_id=29955&client_secret=b23767307c131cad647f8e88843b62e4c8d71071&grant_type=refresh_token&refresh_token=0be56ee1c4851376cfa7158c579aa5ae01a16ff0')
+      .then(response => fetch(`https://www.strava.com/api/v3/athletes/8167341/stats?access_token=`+response.data.access_token))
+      .then(fetchResponse => fetchResponse.json())
       .then(data => this.setState({
         runningStats: {
-         totalDistance: data.all_run_totals.distance / 1000,
-         count: data.all_run_totals.count 
+          totalDistance: data.all_run_totals.distance / 1000,
+          count: data.all_run_totals.count
         }
-        })
-      );
+      }))
+      .catch(error => {
+        console.log(error);
+      })
   }
   
   
@@ -83,14 +90,16 @@ handleClick = i => {
   this.setState({
     languages: this.state.languages.map(language => {
       if (language.id === i) {
-        alert ("I've been learning " + language.name + " for " + this.getLanguageyears(language.id + -1) + " years");
         return {
           ...language,
           pressed: !language.pressed
         };
         
       }
-      return language
+      return {
+        ...language,
+        pressed: false
+      }
   })
 })}
 
@@ -102,7 +111,6 @@ handleClick = i => {
         <a id="home" className="menu-item" href="/">Home</a>
         <a id="about" className="menu-item" href="/about">About</a>
         <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
       </Menu>
       <div id="page-wrap">
       <Header />
@@ -110,6 +118,7 @@ handleClick = i => {
         languages={this.state.languages}
         handleClick={this.handleClick}
         handleFormSubmit={this.addLanguage}
+        languageText=""
         />
         
         {/*<SearchForm
