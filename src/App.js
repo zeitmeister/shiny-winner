@@ -7,6 +7,7 @@ import Header from './Components/Header'
 import Content from './Components/Content';
 import TextContent from './Components/TextContent';
 import StravaStats from './Components/StravaStats';
+import SoundCloud from './Components/SoundCloud';
 import './App.css';
 
 class App extends Component {
@@ -131,6 +132,9 @@ handleClick = i => {
           distance={this.state.runningStats.totalDistance}
           count={this.state.runningStats.count}
           />
+          </div>
+          <div className="box">
+            <SoundCloud/>
           </div>
 
           

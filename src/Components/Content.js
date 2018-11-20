@@ -43,6 +43,15 @@ class Content extends Component {
                 </button>
             )
             }
+            <button>
+                Hejsan
+            </button>
+            <button
+                onClick={() => this.props.handleSoundCloud()}
+                
+                >
+                {"hallå"}
+            </button>
         </ul>
         
     {/*<SearchForm handleFormSubmit={(name, year) => {props.handleFormSubmit(name, year)}}/>*/}
