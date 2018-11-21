@@ -13,6 +13,7 @@ class Content extends Component {
          return texts; 
         })
     }*/
+    
 
 
     render(){
