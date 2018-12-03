@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import StravaStats from './StravaStats';
+import SoundCloud from './SoundCloud';
 class Personal extends Component {
 
     state = {
@@ -10,7 +11,7 @@ class Personal extends Component {
         if (stuffToShow === 'soundcloud') {
             this.setState({
                 stuffToShowId : 1
-            }); 
+            });
         } else if(stuffToShow === 'stravaStats') {
             this.setState({
                 stuffToShowId: 2
@@ -18,18 +19,25 @@ class Personal extends Component {
         }
     }
     render() {
-        
+        let content;
+        if (this.state.stuffToShowId === 1) {
+            content = <SoundCloud/>;
+        } else if (this.state.stuffToShowId === 2) {
+            content = <StravaStats
+            distance={this.props.distance}
+            count={this.props.count}
+            />;
+        }
     return(
     <div>
-        {this.state.stuffToShowId === 1 ? <iframe title="1" width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/214749296&color=%23e4b853&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> : <StravaStats/ >} {
-            
-        }
+        {content}
         <button
         onClick={() => this.handleClick('soundcloud')}
         >
             My music
         </button>
         <button
+        onClick={() => this.handleClick('stravaStats')}
         >
             My workout stats
         </button>

@@ -29,14 +29,14 @@ class App extends Component {
         startingYear: 2017,
         id: 2,
         pressed: false,
-        languageInfo: "After a year of programming on my own I decided to go for it and started a University education. There i learned Object Oriented Programming through C#, something that I still enjoy alot"
+        languageInfo: "After a year of programming on my own I decided to go for it and started university as a systems developer. There I learned Object Oriented Programming through C#, something that I still enjoy alot"
       },
       {
         name: "Java",
         startingYear: 2018,
         id: 3,
         pressed: false,
-        languageInfo: "Started to develop som Android apps with Java. For example I've made a shoppinglist-app for me and my girlfriend, tailormade for our needs."
+        languageInfo: "Later on I started to develop som Android apps with Java. For example I've made a shoppinglist-app for me and my girlfriend, tailormade for our needs."
       },
       {
         name: "PHP",
@@ -57,7 +57,7 @@ class App extends Component {
           totalDistance: data.all_run_totals.distance / 1000,
           count: data.all_run_totals.count
         }
-      }))
+      }, console.log(data)))
       .catch(error => {
         console.log(error);
       })
@@ -124,16 +124,10 @@ handleClick = i => {
         {/*<SearchForm
           handleFormSubmit={this.addLanguage}/>*/}
           <div className="box">
-          <TextContent />
-          </div>
-          {/*<div className="box">
-          <StravaStats 
-          distance={this.state.runningStats.totalDistance}
-          count={this.state.runningStats.count}
-          />
-          </div>*/}
-          <div className="box">
-            <Personal />
+            <Personal
+            distance={this.state.runningStats.totalDistance}
+            count={this.state.runningStats.count}
+            />
           </div>
 
           

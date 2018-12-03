@@ -3,23 +3,10 @@ import React, { Component} from 'react';
 
 
 class Content extends Component {
-//const Content = props => {
-
-    /*const handleClick = (i) => {
-        props.languages.map(language => {
-            if (language.id === i) {
-            }
-            let texts = language.name;
-         return texts; 
-        })
-    }*/
-    
-
-
     render(){
     return (
     <div className="box">
-    <h1 className="heading">Simon Sporrong</h1>
+    <h1 className="heading">Some programming languages</h1>
         
         <div className="languageInfo">
         <p className="languageParagraph">
@@ -44,15 +31,6 @@ class Content extends Component {
                 </button>
             )
             }
-            <button>
-                Hejsan
-            </button>
-            <button
-                onClick={() => this.props.handleSoundCloud()}
-                
-                >
-                {"hallå"}
-            </button>
         </ul>
         
     {/*<SearchForm handleFormSubmit={(name, year) => {props.handleFormSubmit(name, year)}}/>*/}
